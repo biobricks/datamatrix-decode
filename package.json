@@ -1,0 +1,16 @@
+{
+  "name": "datamatrix-decode",
+  "version": "0.0.1",
+  "description": "Port of ZXing DataMatrix decode only",
+  "dependencies": {},
+  "devDependencies": {},
+  "author": {
+    "name": "Marc Juul",
+    "email": "npm@juul.io"
+  },
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/biobricks/datamatrix-decode.git"
+  },
+}
