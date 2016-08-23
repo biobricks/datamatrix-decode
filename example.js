@@ -22,8 +22,29 @@ var bits = [
     [1,1,1,1,1,1,0,1,0,1,0,0,0,0,1,0],
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ];
-    
 
-var str = DatamatrixDecoder(bits);
+// Encodes the numeric value 1901371821
+// using digit pairs
+var digitBits = [   
+    [1,0,1,0,1,0,1,0,1,0,1,0],
+    [1,1,0,1,1,1,0,1,0,1,0,1],
+    [1,0,0,0,1,0,1,0,0,0,1,0],
+    [1,0,1,1,0,1,0,1,1,1,0,1],
+    [1,0,1,1,1,1,1,1,1,0,0,0],
+    [1,1,0,0,0,1,0,1,1,1,1,1],
+    [1,0,0,0,0,1,0,1,0,1,0,0],
+    [1,0,0,0,0,1,0,0,0,0,0,1],
+    [1,0,1,1,1,0,1,0,0,0,1,0],
+    [1,1,0,1,1,0,1,1,1,1,0,1],
+    [1,1,0,0,1,0,0,1,1,0,1,0],
+    [1,1,1,1,1,1,1,1,1,1,1,1]
+];
 
-console.log("Decoded:", str);
+
+var str;
+
+str = DatamatrixDecoder(bits);
+console.log("Ascii decoded:", str);
+
+str = DatamatrixDecoder(digitBits);
+console.log("Digit pairs decoded:", str);

@@ -113,19 +113,24 @@ var DecodedBitStreamParser = module.exports = function() {
       } else {
         switch (mode) {
           case C40_ENCODE:
-            this.decodeC40Segment(bits, result);
+            throw new Error("C40 segment decoding not implemented");
+//            this.decodeC40Segment(bits, result);
             break;
           case TEXT_ENCODE:
-            this.decodeTextSegment(bits, result);
+            throw new Error("Text segment decoding not implemented");
+//            this.decodeTextSegment(bits, result);
             break;
           case ANSIX12_ENCODE:
-            this.decodeAnsiX12Segment(bits, result);
+            throw new Error("AnsiX12 segment decoding not implemented");
+//            this.decodeAnsiX12Segment(bits, result);
             break;
           case EDIFACT_ENCODE:
-            this.decodeEdifactSegment(bits, result);
+            throw new Error("Edifact segment decoding not implemented");
+//            this.decodeEdifactSegment(bits, result);
             break;
           case BASE256_ENCODE:
-            this.decodeBase256Segment(bits, result, byteSegments);
+            throw new Error("Base256 segment decoding not implemented");
+//            this.decodeBase256Segment(bits, result, byteSegments);
             break;
           default:
             throw new Error("format exception");
@@ -164,7 +169,7 @@ var DecodedBitStreamParser = module.exports = function() {
         if (value < 10) { // pad with '0' for single digit values
           result.append('0');
         }
-        result.append(value);
+        result.append(value.toString());
       } else if (oneByte == 230) {  // Latch to C40 encodation
         return Mode.C40_ENCODE;
       } else if (oneByte == 231) {  // Latch to Base 256 encodation

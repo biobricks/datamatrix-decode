@@ -3,11 +3,22 @@ A port of the DataMatrix 2D barcode decoding capability from ZXing to javascript
 
 This module does not include any of the detection / image recognition functionality. This module is what you use to extract the encoded data from a DataMatrix 2D barcode once you know the (boolean) value of each square/element in a barcode.
 
-Currently only supports ASCII encoded data.
+Currently only supports ASCII encoded data and numeric (digit pairs).
 
 # Usage
 
 See example.js
+
+
+# ToDo
+
+Port support for the following modes from DecodedBitStreamParser.java:
+
+* C40
+* Text
+* AnsiX12
+* Edifact
+* Base256
 
 # Copyright and License
 
