@@ -40,11 +40,32 @@ var digitBits = [
     [1,1,1,1,1,1,1,1,1,1,1,1]
 ];
 
+// Encodes the base256
+// using digit pairs
+var baseBits = [   
+    [1,0,1,0,1,0,1,0,1,0,1,0],
+    [1,1,0,1,1,1,0,1,0,1,0,1],
+    [1,0,0,0,1,0,1,0,0,0,1,0],
+    [1,0,1,1,0,1,0,1,1,1,0,1],
+    [1,0,1,1,1,1,1,1,1,0,0,0],
+    [1,1,0,0,0,1,0,0,1,1,1,1],
+    [1,0,0,0,0,1,0,1,0,1,0,0],
+    [1,0,0,0,0,1,0,0,0,0,0,1],
+    [1,0,1,1,1,0,1,0,0,0,1,0],
+    [1,1,0,1,1,0,1,1,1,1,0,1],
+    [1,1,0,0,1,0,0,1,1,0,1,0],
+    [1,1,1,1,1,1,1,1,1,1,1,1]
+];
+
 
 var str;
+
 
 str = DatamatrixDecoder(bits);
 console.log("Ascii decoded:", str);
 
 str = DatamatrixDecoder(digitBits);
 console.log("Digit pairs decoded:", str);
+
+str = DatamatrixDecoder(baseBits);
+console.log("Base256 pairs decoded:", str);

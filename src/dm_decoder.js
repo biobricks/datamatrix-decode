@@ -6,11 +6,13 @@ var DataBlock = require('./dm_datablock');
 
 var DecodedBitStreamParser = require('./dm_decodedbitstreamparser.js');
 
+
 function Decoder() {
 
     this.rsDecoder = new ReedSolomonDecoder(GF256.DATA_MATRIX_FIELD);
 
     this.decode = function(bits) {
+
         var parser = new BitMatrixParser(bits);
         var version = parser.readVersion();
         var codewords = parser.readCodewords();

@@ -104,8 +104,7 @@ var DecodedBitStreamParser = module.exports = function() {
     var bits = new BitSource(bytes);
     var result = new StringBuilder();
     var resultTrailer = new StringBuilder();
-      var byteSegments = [];
-//    List<byte[]> byteSegments = new ArrayList<>(1);
+    var byteSegments = [];
     var mode = ASCII_ENCODE;
     do {
       if (mode == ASCII_ENCODE) {
@@ -208,5 +207,7 @@ var DecodedBitStreamParser = module.exports = function() {
     } while (bits.available() > 0);
     return Mode.ASCII_ENCODE;
   }
+
+
 
 }
