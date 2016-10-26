@@ -1,6 +1,6 @@
 {
   "name": "datamatrix-decode",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Port of ZXing DataMatrix decode only",
   "dependencies": {},
   "devDependencies": {},
