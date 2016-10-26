@@ -1,6 +1,5 @@
 
 
-var Canvas;
 
 /*
   Turns an image into a monochrome image
@@ -26,41 +25,6 @@ function BitMatrix(image, opts) {
         this.bits[y * this.width + x] = true;
     };
 
-    this.fromImage = function(image, opts) {
-        opts = opts || {};
-        var width = opts.width || image.width;
-        var height = opts.height || image.height;
-        this.width = width;
-        this.height = height;
-
-        if(!Canvas) Canvas = require('canvas');
-
-        var canvas = new Canvas(width, height);
-        var ctx = canvas.getContext("2d");
-        ctx.drawImage(image, 0, 0, width, height);
-        var imageData = ctx.getImageData(0, 0, width, height);
-
-        var grayscale = this._imageDataToGrayscale(imageData);
-        imageData = null;
-
-        var middle = this._getMiddleBrightnessPerArea(grayscale, width, height);
-        
-        var sqrtNumArea = middle.length;
-        var areaWidth = Math.floor(width / sqrtNumArea);
-        var areaHeight = Math.floor(height / sqrtNumArea);
-        this.bits = new Array(width * height);
-        var i, ay, ax, dy, dx;
-        for (ay = 0; ay < sqrtNumArea; ay++) {
-            for (ax = 0; ax < sqrtNumArea; ax++) {
-                for (dy = 0; dy < areaHeight; dy++) {
-                    for (dx = 0; dx < areaWidth; dx++) {
-                        i = areaWidth * ax + dx+ (areaHeight * ay + dy) * width
-                        this.bits[i] = (grayscale[areaWidth * ax + dx+ (areaHeight * ay + dy)*width] < middle[ax][ay]) ? true : false;
-                    }
-                }
-            }
-        }
-    };
     
     this._imageDataToGrayscale = function(imageData) {
         var grayscale = new Array(imageData.width * imageData.height);
@@ -159,7 +123,7 @@ function BitMatrix(image, opts) {
             this.height = opts;
             this.bits = new Array(this.width * this.height);
         } else {
-            this.fromImage(image, opts);
+          throw new Error("image input not supported")
         }
     }
 }
